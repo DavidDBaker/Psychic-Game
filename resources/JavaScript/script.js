@@ -38,3 +38,27 @@ var letters = [
   var guessesLeft = 5;
   var wins = 0;
   var losses = 0;
+
+  // Created three functions to updateGuesses, updatedGuessesLeft, and updateGuessesSoFar
+  var updatedGuessesLeft = function() {
+      document.querySelector('#guesses-left').innerHTML = guessesLeft;
+  };
+
+  var updateLetterToGuess = function() {
+      letterToGuess = letters[Math.floor(Math.random() * letters.length)];
+  };
+
+  var updateGuessesSoFar = function() {
+      document.querySelector('#guesses-so-far').innerHTML = guessedLetters.join(', '); 
+  };
+
+  // Reset function to reset after win or out of guesses
+  var reset = function() {
+      guessesLeft = 5;
+      guessedLetters = [];
+      updatedGuessesLeft();
+      updateLetterToGuess();
+      updateGuessesSoFar();
+  }
+
+  
