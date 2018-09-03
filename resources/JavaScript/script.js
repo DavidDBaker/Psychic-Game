@@ -1,5 +1,5 @@
 // Our array of letters
-var letters = [
+const letters = [
     "a",
     "b",
     "c",
@@ -29,31 +29,31 @@ var letters = [
   ];
   
   // Holds what we guess
-  var guessedLetters = [];
+  let guessedLetters = [];
   
   // Will be randomly assigned one of the 26 letters
-  var letterToGuess = null;
+  let letterToGuess;
   
   // Our tracked score, losses, and lives
-  var guessesLeft = 5;
-  var wins = 0;
-  var losses = 0;
+  let guessesLeft = 5;
+  let wins = 0;
+  let losses = 0;
 
   // Created three functions to updateGuesses, updatedGuessesLeft, and updateGuessesSoFar
-  var updatedGuessesLeft = function() {
+  let updatedGuessesLeft = function() {
       document.querySelector('#guesses-left').innerHTML = guessesLeft;
   };
 
-  var updateLetterToGuess = function() {
+  let updateLetterToGuess = function() {
       letterToGuess = letters[Math.floor(Math.random() * letters.length)];
   };
 
-  var updateGuessesSoFar = function() {
+  let updateGuessesSoFar = function() {
       document.querySelector('#guesses-so-far').innerHTML = guessedLetters.join(', '); 
   };
 
   // Reset function to reset after win or out of guesses
-  var reset = function() {
+  let reset = function() {
       guessesLeft = 5;
       guessedLetters = [];
       updatedGuessesLeft();
