@@ -61,4 +61,31 @@ const letters = [
       updateGuessesSoFar();
   }
 
-  
+  // When keys are pressed code block runs
+  document.onkeyup = function(event) {
+    guessesLeft--;
+    let letter = String.fromCharCode(event.keyCode).toLowerCase();
+    // Adding guesses to guessedLetters array
+    guessedLetters.push(letter);
+    // Running update functions
+    updatedGuessesLeft();
+    updateLetterToGuess();
+    updateGuessesSoFar();
+
+    // Switch conditions to be executed
+  switch(true) {
+      case letter === letterToGuess:
+        wins++;
+        document.querySelector('#wins').innerHTML = wins;
+        // Resetting function after win
+        reset();
+
+        break;
+        
+      case guessesLeft === 0:
+        losses++;
+        document.querySelector('#losses').innerHTML = losses;
+        // Resetting function after loss
+        reset();
+    }
+};
